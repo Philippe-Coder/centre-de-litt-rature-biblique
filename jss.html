@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre de Littérature Biblique - Lomé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .active-tab {
+            border-bottom: 3px solid #3b82f6;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        .cart-item {
+            transition: all 0.3s ease;
+        }
+        .cart-item:hover {
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <div class="bg-blue-600 text-white p-2 rounded-lg mr-3">
+                    <i class="fas fa-bible text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-gray-800">Centre de Littérature Biblique</h1>
+                    <p class="text-sm text-gray-600">"Trouvez la Parole qui vous inspire"</p>
+                </div>
+            </div>
+            <nav class="flex space-x-1 md:space-x-4">
+                <button onclick="showSection('accueil')" class="px-3 py-2 text-gray-700 hover:text-blue-600 transition active-tab">Accueil</button>
+                <button onclick="showSection('produits')" class="px-3 py-2 text-gray-700 hover:text-blue-600 transition">Produits</button>
+                <button onclick="showSection('contact')" class="px-3 py-2 text-gray-700 hover:text-blue-600 transition">Contact</button>
+                <button onclick="showSection('localisation')" class="px-3 py-2 text-gray-700 hover:text-blue-600 transition">Localisation</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Accueil Section -->
+        <section id="accueil" class="section-content">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                <div class="md:flex">
+                    <div class="md:flex-shrink-0">
+                        <img class="h-64 w-full object-cover md:w-64" src="bb.jpg" alt="Bible ouverte">
+                    </div>
+                    <div class="p-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Bienvenue au Centre de Littérature Biblique</h2>
+                        <p class="text-gray-600 mb-4">Votre source fiable pour des Bibles, livres chrétiens et matériels d'étude biblique de qualité à Lomé.</p>
+                        <p class="text-gray-600 mb-4">Nous proposons une large sélection de versions bibliques, des ouvrages pour approfondir votre foi et des outils pour votre croissance spirituelle.</p>
+                        <button onclick="showSection('produits')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+                            Découvrez nos produits <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-book-bible text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Bibles Variées</h3>
+                    <p class="text-gray-600">Découvrez notre collection complète de Bibles dans différentes versions et formats pour répondre à tous vos besoins.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-book-open-reader text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Livres Chrétiens</h3>
+                    <p class="text-gray-600">Des ouvrages inspirants pour renforcer votre foi, votre mariage et votre vie spirituelle.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-graduation-cap text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Bibles d'Étude</h3>
+                    <p class="text-gray-600">Des outils complets pour une étude approfondie de la Parole de Dieu avec commentaires et références.</p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                <h3 class="text-xl font-bold text-blue-800 mb-4">Comment commander ?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="flex items-start">
+                        <div class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center mr-3 mt-1 flex-shrink-0">1</div>
+                        <p class="text-gray-700">Parcourez nos produits et ajoutez vos sélections au panier</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center mr-3 mt-1 flex-shrink-0">2</div>
+                        <p class="text-gray-700">Vérifiez votre commande et le montant total</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center mr-3 mt-1 flex-shrink-0">3</div>
+                        <p class="text-gray-700">Envoyez votre commande via WhatsApp pour finaliser l'achat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produits Section -->
+        <section id="produits" class="section-content hidden">
+            <div class="flex border-b mb-6">
+                <button onclick="showProductCategory('bibles')" class="px-4 py-2 font-medium text-gray-700 active-tab">Bibles</button>
+                <button onclick="showProductCategory('livres')" class="px-4 py-2 font-medium text-gray-700">Livres</button>
+                <button onclick="showProductCategory('etudes')" class="px-4 py-2 font-medium text-gray-700">Bibles d'Étude</button>
+            </div>
+
+            <!-- Bibles Category -->
+            <div id="bibles" class="product-category">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Nos Bibles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Bible Rouge -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="rouge.jpg" alt="Bible Rouge">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Bible Rouge</h3>
+                            <p class="text-gray-600 mb-3">Bible standard avec couverture rouge, texte clair et facile à lire.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">2,000 FCFA</span>
+                                <button onclick="addToCart('Bible Rouge', 2000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Louis Second Noir -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="rrr.jpg" alt="Louis Second Noir">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Louis Second Noir</h3>
+                            <p class="text-gray-600 mb-3">Version Louis Segond avec couverture noire élégante, texte complet.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Louis Second Noir', 5000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gros Caractère Doré -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="rrrr.jpg" alt="Gros Caractère Doré">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Gros Caractère Doré</h3>
+                            <p class="text-gray-600 mb-3">Bible avec gros caractères pour une lecture confortable, couverture dorée.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">10,000 FCFA</span>
+                                <button onclick="addToCart('Gros Caractère Doré', 10000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bible Seymour -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="se.jpg" alt="Bible Seymour">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Bible Semeur</h3>
+                            <p class="text-gray-600 mb-3">Version spéciale avec notes et références, idéale pour l'étude personnelle.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Bible Seymour', 5000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bible de Tobe -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="tob.jpg" alt="Bible de Tobe">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Bible de Tobe</h3>
+                            <p class="text-gray-600 mb-3">Version pratique avec couverture souple, facile à transporter.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Bible de Tobe', 5000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bible Pour Enfants -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="en.jpg" alt="Bible Pour Enfants">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Bible Pour Enfants</h3>
+                            <p class="text-gray-600 mb-3">Version illustrée et simplifiée pour initier les enfants à la Parole de Dieu.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Bible Pour Enfants', 5000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bible NIV -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="sdfsdf.jpg" alt="Bible NIV">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Bible NIV</h3>
+                            <p class="text-gray-600 mb-3">New International Version en français, traduction moderne et précise.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Bible NIV', 5000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bible King James -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="k.jpg" alt="Bible King James">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Bible King James</h3>
+                            <p class="text-gray-600 mb-3">Version King James en français, texte classique et apprécié.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Bible King James', 5000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Houlette du Berger -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="houl.jpg" alt="Houlette du Berger">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Houlette du Berger</h3>
+                            <p class="text-gray-600 mb-3">Bible spéciale pour les leaders et pasteurs avec ressources supplémentaires.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">10,000 FCFA</span>
+                                <button onclick="addToCart('Houlette du Berger', 10000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Darby -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="dark.jpg" alt="Darby">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Darby</h3>
+                            <p class="text-gray-600 mb-3">Version Darby, traduction précise appréciée pour l'étude sérieuse.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">10,000 FCFA</span>
+                                <button onclick="addToCart('Darby', 10000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Éwé moyen Togo -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="ewe.jpg" alt="Éwé moyen Togo">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Éwé moyen Togo</h3>
+                            <p class="text-gray-600 mb-3">Bible en langue éwé, édition spéciale pour le Togo.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">6,000 FCFA</span>
+                                <button onclick="addToCart('Éwé moyen Togo', 6000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Éwé moyen GH -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="ewe1.jpg" alt="Éwé moyen GH">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Éwé moyen GH</h3>
+                            <p class="text-gray-600 mb-3">Bible en langue éwé, édition spéciale pour le Ghana.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Éwé moyen GH', 5000, 'bibles')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Livres Category -->
+            <div id="livres" class="product-category hidden">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Livres Chrétiens</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Mariage Chrétien -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="ppp.jpg" alt="Mariage Chrétien">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Mariage Chrétien</h3>
+                            <p class="text-gray-600 mb-3">Guide pratique pour bâtir un mariage solide selon les principes bibliques.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">2,000 FCFA</span>
+                                <button onclick="addToCart('Mariage Chrétien', 2000, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pasteur Fidèle -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="pas.jpg" alt="Pasteur Fidèle">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Pasteur Fidèle</h3>
+                            <p class="text-gray-600 mb-3">Principes et conseils pour un ministère pastoral efficace et intègre.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">2,000 FCFA</span>
+                                <button onclick="addToCart('Pasteur Fidèle', 2000, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Manuel du Pasteur -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="manuel.jpg" alt="Manuel du Pasteur">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Manuel du Pasteur</h3>
+                            <p class="text-gray-600 mb-3">Outil complet pour la préparation des sermons et la gestion de l'église.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">1,500 FCFA</span>
+                                <button onclick="addToCart('Manuel du Pasteur', 1500, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Encyclopédie -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="cy.jpg" alt="Encyclopédie">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Encyclopédie</h3>
+                            <p class="text-gray-600 mb-3">Ouvrage de référence complet sur la Bible, son histoire et son enseignement.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Encyclopédie', 5000, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concordance -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="conc1.jpg" alt="Concordance">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Concordance</h3>
+                            <p class="text-gray-600 mb-3">Outil indispensable pour trouver tous les versets contenant un mot particulier.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">5,000 FCFA</span>
+                                <button onclick="addToCart('Concordance', 5000, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concordance grande -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="conc.jpg" alt="Concordance grande">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Concordance grande</h3>
+                            <p class="text-gray-600 mb-3">Version complète et détaillée de la concordance biblique.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">12,000 FCFA</span>
+                                <button onclick="addToCart('Concordance grande', 12000, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comment devenir une femme de compassion -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="dr.jpg" alt="Comment devenir une femme de compassion">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Comment devenir une femme de compassion</h3>
+                            <p class="text-gray-600 mb-3">Guide pour développer les qualités bibliques de la femme vertueuse.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">3,000 FCFA</span>
+                                <button onclick="addToCart('Comment devenir une femme de compassion', 3000, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vivre par la foi -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="vv.jpg" alt="Vivre par la foi">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Vivre par la foi</h3>
+                            <p class="text-gray-600 mb-3">Enseignements profonds sur la vie de foi selon les Écritures.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">7,000 FCFA</span>
+                                <button onclick="addToCart('Vivre par la foi', 7000, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cœur de l'homme -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="cr.jpg" alt="Cœur de l'homme">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Cœur de l'homme</h3>
+                            <p class="text-gray-600 mb-3">Analyse biblique de la nature humaine et du processus de transformation.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">200 FCFA</span>
+                                <button onclick="addToCart('Cœur de l\'homme', 200, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Femme choisie -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="fm.jpg" alt="Femme choisie">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Femme choisie</h3>
+                            <p class="text-gray-600 mb-3">Découvrez votre identité et votre valeur en tant que femme selon Dieu.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">2,000 FCFA</span>
+                                <button onclick="addToCart('Femme choisie', 2000, 'livres')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bibles d'Étude Category -->
+            <div id="etudes" class="product-category hidden">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Bibles d'Étude</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Thompson -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="sd.jpg" alt="Thompson">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Thompson</h3>
+                            <p class="text-gray-600 mb-3">Bible d'étude avec système de références en chaîne, notes et commentaires.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">25,000 FCFA</span>
+                                <button onclick="addToCart('Thompson', 25000, 'etudes')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vinovel -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="vie.jpg" alt="Vinovel">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Vie nouvelle</h3>
+                            <p class="text-gray-600 mb-3">Bible d'étude avec commentaires théologiques approfondis et notes explicatives.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">30,000 FCFA</span>
+                                <button onclick="addToCart('ie nouvelle', 30000, 'etudes')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Makatu -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="ac.jpg" alt="Makatu">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">MacArthur</h3>
+                            <p class="text-gray-600 mb-3">Bible d'étude avec notes historiques, culturelles et linguistiques détaillées.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">30,000 FCFA</span>
+                                <button onclick="addToCart('MacArthur', 30000, 'etudes')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Commentaire Contemporain -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="co.jpg" alt="Commentaire Contemporain">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Commentaire Contemporain</h3>
+                            <p class="text-gray-600 mb-3">Bible avec commentaires appliquant les Écritures au contexte moderne.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">30,000 FCFA</span>
+                                <button onclick="addToCart('Commentaire Contemporain', 30000, 'etudes')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grand dictionnaire biblique -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="nov.jpg" alt="Grand dictionnaire biblique">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Grand dictionnaire biblique</h3>
+                            <p class="text-gray-600 mb-3">Ouvrage de référence exhaustif sur les termes et concepts bibliques.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">55,000 FCFA</span>
+                                <button onclick="addToCart('Grand dictionnaire biblique', 55000, 'etudes')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Commentaire biblique -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition">
+                        <img class="w-44 h-44 object-cover mx-auto" src="nov1.jpg" alt="Commentaire biblique">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Nouveau dictionnaire dibiblique</h3>
+                            <p class="text-gray-600 mb-3">Collection complète de commentaires verset par verset de toute la Bible.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-blue-600">50,000 FCFA</span>
+                                <button onclick="addToCart('Nouveau dictionnaire dibiblique', 50000, 'etudes')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-content hidden">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Contactez-nous</h2>
+                        <p class="text-gray-600 mb-6">Nous sommes à votre disposition pour répondre à toutes vos questions sur nos produits ou pour prendre votre commande.</p>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i> Adresse</h3>
+                            <p class="text-gray-600">Lomegan, Lomé (route non goudronnée de la radio Pyramide FM)</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2"><i class="fas fa-phone-alt text-blue-600 mr-2"></i> Téléphone</h3>
+                            <p class="text-gray-600">
+                                <a href="tel:+22893278051" class="hover:text-blue-600">+228 93 27 80 51</a><br>
+                                <a href="tel:+22890101383" class="hover:text-blue-600">+228 90 10 13 83</a><br>
+                                <a href="tel:+22892007804" class="hover:text-blue-600">+228 92 00 78 04</a><br>
+                            </p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2"><i class="fas fa-envelope text-blue-600 mr-2"></i> Email</h3>
+                            <p class="text-gray-600">
+                                <a href="mailto:alaojacob30@icloud.com" class="hover:text-blue-600">alaojacob30@icloud.com</a>
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2"><i class="fab fa-whatsapp text-green-500 mr-2"></i> WhatsApp</h3>
+                            <p class="text-gray-600 mb-4">
+                                <a href="https://wa.me/22893278051" target="_blank" class="hover:text-green-600">+228 93 27 80 51</a> (Cliquez pour discuter)
+                            </p>
+                            <a href="https://wa.me/22893278051" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded inline-flex items-center transition">
+                                <i class="fab fa-whatsapp mr-2"></i> Envoyer un message
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8 bg-gray-50">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Envoyez-nous un message</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-1">Nom complet</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" required>
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-700 mb-1">Numéro de téléphone</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" required>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" required></textarea>
+                            </div>
+                            
+                            <button type="button" onclick="sendContactMessage()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition w-full">
+                                Envoyer <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Localisation Section -->
+        <section id="localisation" class="section-content hidden">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                <div class="p-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Notre localisation</h2>
+                    <p class="text-gray-600 mb-6">Nous sommes situés à Lomegan, Lomé, près de la radio Pyramide FM (route non goudronnée).</p>
+                    
+                    <div class="mb-6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6114076176036!2d1.2032616731867598!3d6.182732927033231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1021589b38e6657f%3A0xf97bbe18e8754eb0!2sRadio%20Pyramide%20FM!5e0!3m2!1sen!2stg!4v1746445109152!5m2!1sen!2stg" width="100%" height="350" style="border:1px solid #ccc; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2"><i class="fas fa-car text-blue-600 mr-2"></i> Comment nous trouver</h3>
+                            <p class="text-gray-700">Prenez la direction de la radio Pyramide FM. Notre boutique se trouve sur la route non goudronnée à proximité immédiate de la radio.</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2"><i class="fas fa-clock text-blue-600 mr-2"></i> Heures d'ouverture</h3>
+                            <p class="text-gray-700">
+                                <span class="font-medium">Lundi - Vendredi:</span> 8h00 - 18h00<br>
+                                <span class="font-medium">Samedi:</span> 9h00 - 16h00<br>
+                                <span class="font-medium">Dimanche:</span> Fermé
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="fixed inset-y-0 right-0 w-full md:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
+        <div class="p-4 border-b border-gray-200">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-bold text-gray-800">Votre Panier</h2>
+                <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="cartItems" class="p-4 space-y-4">
+            <!-- Cart items will be added here dynamically -->
+            <p class="text-gray-500 text-center py-8">Votre panier est vide</p>
+        </div>
+        
+        <div class="p-4 border-t border-gray-200 bg-gray-50 sticky bottom-0">
+            <div class="flex justify-between mb-4">
+                <span class="font-semibold">Total:</span>
+                <span id="cartTotal" class="font-bold">0 FCFA</span>
+            </div>
+            
+            <div class="mb-4">
+                <label for="quantityNote" class="block text-sm font-medium text-gray-700 mb-1">Note sur les quantités (si plusieurs articles)</label>
+                <textarea id="quantityNote" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Précisez les quantités pour chaque article si nécessaire..."></textarea>
+            </div>
+            
+            <button onclick="sendOrderViaWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center transition">
+                <i class="fab fa-whatsapp mr-2"></i> Commander via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <button onclick="toggleCart()" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg flex items-center justify-center transition">
+            <i class="fas fa-shopping-cart text-xl"></i>
+            <span id="cartCount" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">0</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Centre de Littérature Biblique</h3>
+                    <p class="text-gray-300">Votre source fiable pour des Bibles, livres chrétiens et matériels d'étude biblique de qualité à Lomé.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><button onclick="showSection('accueil')" class="text-gray-300 hover:text-white transition">Accueil</button></li>
+                        <li><button onclick="showSection('produits')" class="text-gray-300 hover:text-white transition">Produits</button></li>
+                        <li><button onclick="showSection('contact')" class="text-gray-300 hover:text-white transition">Contact</button></li>
+                        <li><button onclick="showSection('localisation')" class="text-gray-300 hover:text-white transition">Localisation</button></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <p class="text-gray-300 mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Lomegan, Lomé</p>
+                    <p class="text-gray-300 mb-2"><i class="fas fa-phone-alt mr-2"></i> +228 93 27 80 51</p>
+                    <p class="text-gray-300"><i class="fas fa-envelope mr-2"></i> alaojacob30@icloud.com</p>
+                    
+                    <div class="mt-4 flex space-x-4">
+                        <a href="https://wa.me/22893278051" target="_blank" class="text-gray-300 hover:text-green-400 transition">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Littérature Biblique. Tous droits réservés. Create by JacobDev</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize cart
+        let cart = [];
+        
+        // Show section function
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Update active tab in header
+            document.querySelectorAll('header nav button').forEach(button => {
+                button.classList.remove('active-tab');
+            });
+            
+            // Set active tab if it's in header
+            const headerButton = document.querySelector(`header nav button[onclick="showSection('${sectionId}')"]`);
+            if (headerButton) {
+                headerButton.classList.add('active-tab');
+            }
+            
+            // For product categories
+            if (sectionId === 'produits') {
+                showProductCategory('bibles');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Show product category
+        function showProductCategory(categoryId) {
+            // Hide all categories
+            document.querySelectorAll('.product-category').forEach(category => {
+                category.classList.add('hidden');
+            });
+            
+            // Show selected category
+            document.getElementById(categoryId).classList.remove('hidden');
+            
+            // Update active tab
+            document.querySelectorAll('#produits .flex button').forEach(button => {
+                button.classList.remove('active-tab');
+            });
+            
+            document.querySelector(`#produits .flex button[onclick="showProductCategory('${categoryId}')"]`).classList.add('active-tab');
+        }
+        
+        // Toggle cart visibility
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            cartSidebar.style.transform = cartSidebar.style.transform === 'translateX(0%)' ? 'translateX(100%)' : 'translateX(0%)';
+        }
+        
+        // Add to cart function
+        function addToCart(name, price, category) {
+            // Check if item already in cart
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1,
+                    category: category
+                });
+            }
+            
+            updateCart();
+            showCartNotification(name);
+        }
+        
+        // Update cart UI
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            // Update count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update items list
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Votre panier est vide</p>';
+                cartTotal.textContent = '0 FCFA';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="cart-item bg-gray-50 p-3 rounded-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h4 class="font-medium text-gray-800">${item.name}</h4>
+                                <p class="text-sm text-gray-600">${item.price.toLocaleString()} FCFA × ${item.quantity}</p>
+                            </div>
+                            <span class="font-bold text-blue-600">${itemTotal.toLocaleString()} FCFA</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center border border-gray-300 rounded">
+                                <button onclick="updateQuantity(${index}, -1)" class="px-2 py-1 text-gray-600 hover:bg-gray-200">-</button>
+                                <span class="px-2">${item.quantity}</span>
+                                <button onclick="updateQuantity(${index}, 1)" class="px-2 py-1 text-gray-600 hover:bg-gray-200">+</button>
+                            </div>
+                            <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 text-sm">
+                                <i class="fas fa-trash-alt"></i> Supprimer
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = itemsHTML;
+            cartTotal.textContent = `${total.toLocaleString()} FCFA`;
+        }
+        
+        // Update item quantity
+        function updateQuantity(index, change) {
+            const newQuantity = cart[index].quantity + change;
+            
+            if (newQuantity < 1) {
+                removeFromCart(index);
+                return;
+            }
+            
+            cart[index].quantity = newQuantity;
+            updateCart();
+        }
+        
+        // Remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+        
+        // Show notification when item added to cart
+        function showCartNotification(itemName) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-20 right-6 bg-green-500 text-white px-4 py-2 rounded shadow-lg flex items-center animate-fade-in-out z-50';
+            notification.innerHTML = `
+                <i class="fas fa-check-circle mr-2"></i>
+                <span>${itemName} ajouté au panier</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('animate-fade-out');
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+        
+        // Send order via WhatsApp
+        function sendOrderViaWhatsApp() {
+            if (cart.length === 0) {
+                alert('Votre panier est vide. Ajoutez des articles avant de commander.');
+                return;
+            }
+            
+            const phoneNumber = '22893278051';
+            let message = 'Bonjour, je souhaite commander les articles suivants:\n\n';
+            
+            // Add items to message
+            cart.forEach(item => {
+                message += `- ${item.name} (${item.price.toLocaleString()} FCFA) × ${item.quantity} = ${(item.price * item.quantity).toLocaleString()} FCFA\n`;
+            });
+            
+            // Add total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            message += `\n*Total: ${total.toLocaleString()} FCFA*\n`;
+            
+            // Add quantity note if exists
+            const quantityNote = document.getElementById('quantityNote').value;
+            if (quantityNote) {
+                message += `\nNotes sur les quantités:\n${quantityNote}\n`;
+            }
+            
+            // Add customer info
+            message += '\nMerci de me contacter pour finaliser la commande.';
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/22893278051?text=${encodedMessage}`, '_blank');
+			
+			// Clear cart after checkout
+            cart = [];
+            updateCart();
+            cartModal.classList.add('hidden');
+        }
+        
+        // Send contact message
+        function sendContactMessage() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !phone || !message) {
+                alert('Veuillez remplir tous les champs du formulaire.');
+                return;
+            }
+            
+            const phoneNumber = '22893278051';
+            const fullMessage = `Nouveau message de ${name} (${phone}):\n\n${message}`;
+            const encodedMessage = encodeURIComponent(fullMessage);
+            
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            // Show success message
+            alert('Votre message a été préparé pour envoi via WhatsApp. Merci de finaliser l\'envoi dans l\'application.');
+        }
+        
+        // Initialize map (this is a placeholder - you would need to integrate with Google Maps API)
+        function initMap() {
+            // In a real implementation, you would initialize Google Maps here
+            console.log('Map would be initialized here with Google Maps API');
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('accueil');
+            initMap();
+        });
+    </script>
+
+    <!-- Add some animation styles -->
+    <style>
+        .animate-fade-in-out {
+            animation: fadeInOut 0.3s ease-in-out;
+        }
+        
+        .animate-fade-out {
+            animation: fadeOut 0.3s ease-in-out forwards;
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
+        }
+    </style>
+</body>
+</html>
